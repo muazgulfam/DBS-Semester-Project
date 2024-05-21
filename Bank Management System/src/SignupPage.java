@@ -218,25 +218,28 @@ public class SignupPage extends JFrame implements ActionListener{
         String city = cityTextField.getText();
         String state = stateTextField.getText();
         String pin = pinTextField.getText();
-
-    //Validation Check    
+    
         try {
+        //Validation Check
             if(name.equals("")){
                 JOptionPane.showMessageDialog(null, "Name is required");
             }
-            else{}
-            if(fname.equals("")){
+            else if(fname.equals("")){
                 JOptionPane.showMessageDialog(null, "Father Name is required");
             }
-            else{}
-            if(dob.equals("")){
+            else if(dob.equals("")){
                 JOptionPane.showMessageDialog(null, "Date of birth is required");
             }
-            else{}
-            if(email.equals("")){
+            else if(email.equals("")){
                 JOptionPane.showMessageDialog(null, "Email is required");
             }
-            else{}
+        //Establishing Connection
+            else{
+                Jdbc c = new Jdbc();
+                String query = "INSERT INTO signup VALUES ('"+formno+"', '"+name+"','"+fname+"', '"+dob+"', '"+gender+"', '"+email+"', '"+marital+"', '"+address+"', '"+city+"', '"+state+"', '"+pin+"')";
+                //4th step: Execute Query
+                    c.s.executeQuery(query);
+            }
         } catch (Exception e) {
             // TODO: handle exception
             System.out.println(e);
