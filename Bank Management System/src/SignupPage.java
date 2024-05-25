@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.*;
 import java.awt.event.*;
+import java.sql.*;
 //import com.toedter.calender.JDateChooser;  Error in importing JAR file of calender
 
 public class SignupPage extends JFrame implements ActionListener{
