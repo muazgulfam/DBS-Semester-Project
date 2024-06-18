@@ -16,4 +16,26 @@ CREATE TABLE signup
         pin_code varchar(20)
     );
     
+    SELECT * from signup;
+    SHOW tables;
     
+    
+CREATE TABLE AccDetails
+	(
+		formno varchar(20),
+		accountType varchar(40),
+		cardNumber varchar(25),
+		pin varchar(10),
+		facility varchar(100)
+	);
+
+SELECT * from AccDetails;
+
+CREATE TABLE login
+	(
+		formno varchar(20),
+		cardNumber varchar(25),
+		pin varchar(10)
+	);
+    
+SELECT * from login;
