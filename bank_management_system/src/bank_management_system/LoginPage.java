@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
 
 public class LoginPage extends JFrame implements ActionListener{
     JButton signin, signup, clear;
@@ -76,6 +77,7 @@ public class LoginPage extends JFrame implements ActionListener{
 
         setSize(800, 480);
         setLocation(350, 200);
+    //setVisible must always be at the end 
         setVisible(true);
         getContentPane().setBackground(Color.WHITE);
 
@@ -87,7 +89,27 @@ public class LoginPage extends JFrame implements ActionListener{
             pinTextField.setText("");
         }
         else if(ae.getSource() == signin){
-
+        //Creating a new database connection with Login class
+            Jdbc jdbc = new Jdbc();
+            String cardnumber = cardTextField.getText();
+            String pinNumber = pinTextField.getText();
+        //DML Query (SELECT)
+            String query = "SELECT * FROM login WHERE cardNumber = '"+cardnumber+"' and pin = '"+pinNumber+"'";
+            try{
+            //ResultSet is a class in SQL package which stores a returned result if the the query matches the database
+                ResultSet result = jdbc.s.executeQuery(query);
+            //Checks wheather the result have recieved any data, which means that the user can successfully login
+                if(result.next()){
+                    setVisible(false);
+                    new Transactions(pinNumber).setVisible(true);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Incorrect Card number or Pin");
+                }
+            }
+            catch(Exception e){
+                System.out.println(e);
+            }
         }
         else if(ae.getSource() == signup){
             setVisible(false);

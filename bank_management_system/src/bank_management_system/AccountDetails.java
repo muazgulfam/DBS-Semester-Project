@@ -182,6 +182,7 @@ public class AccountDetails extends JFrame implements ActionListener{
                 }
                 else{
                     Jdbc connection = new Jdbc();
+                //DML Queries (INSERTING)
                     String query1 = "insert into AccDetails values('"+formno+"', '"+accountType+"', '"+cardNumber+"', '"+pinNumber+"', '"+facility+"' )";
                     String query2 = "insert into login values('"+formno+"', '"+cardNumber+"', '"+pinNumber+"')";
                     connection.s.executeUpdate(query1);

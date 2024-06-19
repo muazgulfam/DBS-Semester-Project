@@ -242,6 +242,7 @@ public class SignupPage extends JFrame implements ActionListener{
         //Establishing Connection
             else{
                 Jdbc c1 = new Jdbc();
+            //DML Query (INSERTING)
                 String query = "INSERT INTO signup VALUES ('"+formno+"', '"+name+"','"+fname+"', '"+dob+"', '"+gender+"', '"+email+"', '"+marital+"', '"+address+"', '"+city+"', '"+state+"', '"+pin+"')";
                 //4th step: Execute Query
                     c1.s.executeUpdate(query);
