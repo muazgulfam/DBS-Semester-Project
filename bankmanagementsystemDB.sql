@@ -10,14 +10,13 @@ CREATE TABLE signup
         gender varchar(20),
         email varchar(30),
         marital_status varchar(20),
-        address varchar(40),
+        address varchar(80),
         city varchar(25),
         state varchar(20),
         pin_code varchar(20)
     );
-    
-    SELECT * from signup;
-    SHOW tables;
+SELECT * from signup;
+SHOW tables;    
     
     
 CREATE TABLE AccDetails
@@ -28,8 +27,8 @@ CREATE TABLE AccDetails
 		pin varchar(10),
 		facility varchar(100)
 	);
-
 SELECT * from AccDetails;
+
 
 CREATE TABLE login
 	(
@@ -37,5 +36,14 @@ CREATE TABLE login
 		cardNumber varchar(25),
 		pin varchar(10)
 	);
-    
 SELECT * from login;
+
+
+CREATE TABLE bank
+	(
+		pin varchar(10), 
+        date varchar(50),
+        type varchar(20),
+        amount varchar(20)
+    );
+SELECT * from bank;

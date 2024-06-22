@@ -189,6 +189,9 @@ public class AccountDetails extends JFrame implements ActionListener{
                     connection.s.executeUpdate(query2);
                     
                     JOptionPane.showMessageDialog(null, "Card Number: " + cardNumber + "\nPin: " + pinNumber);
+                    
+                    setVisible(false);
+                    new Deposit(pinNumber).setVisible(true);
                 }
             }
             catch(Exception e){
@@ -196,7 +199,8 @@ public class AccountDetails extends JFrame implements ActionListener{
             }
         }
         else if(ae.getSource() == cancel){
-            
+            setVisible(false);
+            new LoginPage().setVisible(true);
         }
     }    
     
